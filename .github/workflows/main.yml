@@ -58,7 +58,7 @@ jobs:
         id: buildRelease
         run: |
           ./gradlew :app:buildRelease
-          echo "releaseName=$(ls app/release/app-release.apk | awk -F '(/|.apk)' '{print $5}')" >> $GITHUB_OUTPUT
+          echo "releaseName=$(ls app/release/app-release.apk)" >> $GITHUB_OUTPUT
           
       - name: Upload release
         if: success()

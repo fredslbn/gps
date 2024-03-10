@@ -66,7 +66,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.7.0"
 
     //Hilt
-    implementation "com.google.dagger:hilt-android:2.50"
+    implementation "com.google.dagger:hilt-android:2.51"
     kapt "com.google.dagger:hilt-compiler:2.50"
 
    //Timber

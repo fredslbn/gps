@@ -45,7 +45,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="${MAPS_API_KEY}" />
+            android:value="AIzaSyDJHl2fdyya0PuEY-LRFUZM71pijfZN6IE" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -62,7 +62,7 @@
             android:value="true" />
         <meta-data
             android:name="xposeddescription"
-            android:value="@string/xposed_desc" />
+            android:value="" />
         <meta-data
             android:name="xposedminversion"
             android:value="93" />

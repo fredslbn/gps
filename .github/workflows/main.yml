@@ -58,12 +58,12 @@ jobs:
         id: buildRelease
         run: |
           ./gradlew :app:buildRelease
-          echo "releaseName=$(ls app/build/apk/release/HMA*-release.apk | awk -F '(/|.apk)' '{print $5}')" >> $GITHUB_OUTPUT
+          echo "releaseName=$(ls app/release/app-release.apk | awk -F '(/|.apk)' '{print $5}')" >> $GITHUB_OUTPUT
           
       - name: Upload release
         if: success()
         uses: actions/upload-artifact@v3
         with:
           name: ${{ steps.buildRelease.outputs.releaseName }}
-          path: "app/build/apk/release/HMA*-release.apk"
+          path: "app/release/app-release.apk"
 

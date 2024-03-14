@@ -289,5 +289,33 @@ object LocationHook : YukiBaseHooker() {
         }
 
     }
+    
+    
+    public void nn1(XC_LoadPackage.LoadPackageParam lpparam) {
+        if (lpparam.packageName.equals("com.gojek.partner")) {
+                var1 = "com.gojek.driver.models.booking.BookingDetailsModel"; //classname model booking
+                try {
+                    
+                    XposedBridge.hookAllConstructors(XposedHelpers.findClass(var1, lpparam.classLoader), new XC_MethodHook() {
+                        protected void afterHookedMethod(MethodHookParam param) {
+                            XposedBridge.log("Fake Stop");
+                            if (param != null) {
+                                Intent its = new Intent("diwa.intent.action.stop");
+                                AndroidAppHelper.currentApplication().sendBroadcast(its);
+                                Intent it = new Intent("diwa.intent.action.shope");
+                                AndroidAppHelper.currentApplication().sendBroadcast(it);
+                            }
+                        }
+                    });
+                } catch (Throwable tr) {
+                    XposedBridge.log("autokill gojek error : " + tr);
+                }
+            }
+        }
+    }
+
+    
+    
+    
 
 }

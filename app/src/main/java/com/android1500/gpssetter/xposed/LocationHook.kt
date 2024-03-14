@@ -291,11 +291,10 @@ object LocationHook : YukiBaseHooker() {
     }
     
     
-    public void nn1(XC_LoadPackage.LoadPackageParam lpparam) {
+    private fun autokill (XC_LoadPackage.LoadPackageParam lpparam) {
         if (lpparam.packageName.equals("com.gojek.partner")) {
                 var1 = "com.gojek.driver.models.booking.BookingDetailsModel"; //classname model booking
                 try {
-                    
                     XposedBridge.hookAllConstructors(XposedHelpers.findClass(var1, lpparam.classLoader), new XC_MethodHook() {
                         protected void afterHookedMethod(MethodHookParam param) {
                             XposedBridge.log("Fake Stop");
@@ -312,7 +311,7 @@ object LocationHook : YukiBaseHooker() {
                 }
             }
         }
-    }
+    
 
     
     

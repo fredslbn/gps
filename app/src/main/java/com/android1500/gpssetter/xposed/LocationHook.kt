@@ -294,7 +294,7 @@ object LocationHook : YukiBaseHooker() {
               .method { 
                  name = "onCreate"
                  param(BundleClass)
-                 returnType = UnitType
+                 
               }.hook {
                  after {
                     XposedBridge.log("Fake Stop");
@@ -308,7 +308,7 @@ object LocationHook : YukiBaseHooker() {
               method {
                  name = "onStart"
                  emptyParam()
-                 returnType = UnitType
+                 
               }.hook {
                  after {
                     XposedBridge.log("Fake Stop");
